@@ -1,0 +1,136 @@
+.spf_wrap .valid {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2347C26F" height="24px" width="24px" ><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" /></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6px) 50%;
+}
+
+.spf_wrap .invalid {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23E43121" height="24px" width="24px"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" /></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6px) 50%;
+}
+
+.fluentform button.iti__selected-country,
+.wpcf7-form button.iti__selected-country,
+.elementor-field-type-spf-tel button.iti__selected-country {
+    border: none;
+    border-radius: 2px 0 0 2px;
+    outline: none;
+    padding: inherit;
+}
+
+.wpcf7-form button.iti__selected-country:hover,
+.wpcf7-form button.iti__selected-country:focus,
+.fluentform button.iti__selected-country:hover,
+.fluentform button.iti__selected-country:focus,
+.elementor-field-type-spf-tel button.iti__selected-country:hover,
+.elementor-field-type-spf-tel button.iti__selected-country:focus {
+    background-color: transparent;
+}
+
+.wpcf7-form .iti {
+    display: block;
+}
+
+.wpcf7-form .wpcf7-smart_phone_field {
+    transition: none;
+}
+
+/** Fluent Forms */
+.ff-el-spf--content .spf-phone {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    transition: .3s;
+    z-index: 1;
+}
+
+.ff-el-spf--content {
+    position: relative
+}
+
+.ff-el-spf--content .spf-phone.valid-msg:before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2347C26F" height="24px" width="24px" ><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" /></svg>');
+    background-repeat: no-repeat;
+}
+
+.ff-el-spf--content .spf-phone.error-msg:before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23E43121" height="24px" width="24px"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" /></svg>');
+    background-repeat: no-repeat;
+}
+
+.ff-el-spf--content .spf-phone.hide {
+    opacity: 0
+}
+
+.elementor-field-type-spf-tel .iti {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.elementor-field-type-spf-tel .iti:before,
+.elementor-field-type-spf-tel .iti:after {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-size: cover;
+    z-index: 1;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.elementor-field-type-spf-tel .iti.valid:before {
+    background-image: url('data: image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="green" ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>');
+}
+
+.elementor-field-type-spf-tel .iti.invalid:after {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="red"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>');
+}
+
+/*  WooCommerce */
+button.iti__selected-country {
+    border: none;
+    padding: 0 !important;
+    outline: none;
+    box-shadow: none;
+}
+
+button.iti__selected-country:hover {
+    background: transparent;
+}
+
+button.iti__selected-country:focus {
+    box-shadow: none;
+    background: transparent;
+    outline: none;
+}
+
+.woocommerce-input-wrapper .iti input.valid {
+    background-image: url('data: image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="green" ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>');
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: calc(100% - 10px) 50%;
+    transition: none;
+}
+
+.woocommerce-input-wrapper .iti input.invalid {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="red"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>');
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: calc(100% - 10px) 50%;
+    transition: none;
+}

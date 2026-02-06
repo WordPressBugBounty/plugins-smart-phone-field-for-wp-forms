@@ -1,0 +1,86 @@
+<?php
+/*
+Plugin Name: Smart Phone Field
+Plugin Url: https://pluginscafe.com/plugin/smart-phone-field
+Version: 1.0.4
+Description: Instruct visitors to choose country code when entering their mobile number to ensure accurate and correctly formatted data submissions.
+Author: Pluginscafe
+Author URI: https://pluginscafe.com
+License: GPLv2 or later
+Text Domain: smart-phone-field-for-wp-forms
+*/
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+
+class PCafe_Smart_Phone_Field {
+    const version = '1.0.4';
+    public function __construct() {
+        define('PCAFE_SPF_PATH', plugin_dir_path(__FILE__));
+        define('PCAFE_SPF_URL', plugin_dir_url(__FILE__));
+        define('PCAFE_SPF_VERSION', self::version);
+
+        add_action('wp_enqueue_scripts', [$this, 'pcafe_spf_enqueue_scripts']);
+
+        add_action('activated_plugin', array($this, 'pcafe_spf_plugin_redirection'));
+
+        register_activation_hook(__FILE__,   [$this, 'pcafe_spf_activation']);
+
+        add_action('wp_head', [$this, 'pcafe_spf_global_setting']);
+        $this->loads_field();
+    }
+
+    public function pcafe_spf_enqueue_scripts() {
+        if (! PCafe_SPF_Utils::instance()->active_addon_list()) return;
+
+        wp_enqueue_style('pcafe_spf_intl', PCAFE_SPF_URL . 'assets/css/intlTelInput2.css', array(), PCAFE_SPF_VERSION);
+        wp_enqueue_style('pcafe_spf_style', PCAFE_SPF_URL . 'assets/css/spf_style.css', array(), PCAFE_SPF_VERSION);
+
+        wp_enqueue_script('pcafe_spf_intl', PCAFE_SPF_URL . 'assets/js/intlTelInputWithUtils.min.js', array(), PCAFE_SPF_VERSION, false);
+    }
+
+    public function pcafe_spf_global_setting() {
+        if (! PCafe_SPF_Utils::instance()->active_addon_list()) return;
+?>
+        <script>
+            const pcafe_spf_global_setting = <?php echo wp_json_encode(PCafe_SPF_Utils::instance()->get_settings()); ?>
+        </script>
+<?php
+    }
+
+    public function loads_field() {
+        include PCAFE_SPF_PATH . "includes/admin/dashboard.php";
+    }
+
+    public function pcafe_spf_plugin_redirection($plugin) {
+        if ($plugin == plugin_basename(__FILE__)) {
+            wp_safe_redirect(esc_url(admin_url('admin.php?page=smart-phone-field')));
+            exit;
+        }
+    }
+
+    public function pcafe_spf_activation() {
+        $saved_addon    = get_option('pcafe_spf_plugin_list');
+        $saved_settings = get_option('pcafe_spf_global_setting');
+        $installed = get_option('pcafe_spf_installed');
+
+        update_option('pcafe_spf_version', PCAFE_SPF_VERSION);
+
+        if (!$installed) {
+            update_option('pcafe_spf_installed', time());
+        }
+
+        if (! $saved_addon) {
+            $addon = ['contact-form-7'];
+            update_option('pcafe_spf_plugin_list', $addon);
+        }
+
+        if (! $saved_settings) {
+            $settings = ['spf_geoip' => 'on', 'spf_default_country' => 'US', 'spf_country_search' => 'on'];
+            update_option('pcafe_spf_global_setting', $settings);
+        }
+    }
+}
+
+new PCafe_Smart_Phone_Field();
