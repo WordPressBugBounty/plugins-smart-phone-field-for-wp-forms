@@ -5,7 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-.toplevel_page_smart-phone-field #wpcontent {
+.toplevel_page_smart-phone-field-pro #wpcontent {
     padding-left: 0;
     background-color: #F6FAFF;
 }
@@ -58,7 +58,7 @@ ul.pcafe_tab_menu {
 }
 
 .pcafe_menu {
-    width: calc(100% - 450px);
+    width: calc(100% - 390px);
     display: flex;
     align-items: center;
     gap: 150px;
@@ -630,19 +630,34 @@ button.pcafe_spf_install_btn .loader {
     flex-direction: row;
     gap: 6px;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.addon_info img {
-    width: 16px;
-}
 
 .addon_info .single_info {
     display: flex;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 4px 6px;
+    line-height: 12px;
+    border-radius: 3px;
+    color: #fff;
+    letter-spacing: .5px;
 }
 
 .spf__addon_footer {
     display: flex;
     justify-content: space-between;
+}
+
+.addon_info .single_info.demo {
+    background: #11B76A;
+}
+
+.addon_info .single_info.doc {
+    color: #333;
+    text-decoration: underline;
 }
 
 .addon_info .single_info:focus {
@@ -676,42 +691,139 @@ button.pcafe_spf_install_btn .loader {
     color: #fff;
 }
 
-.addon_info .hover_title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -30px;
-    background: #D4DFF4;
-    color: #000;
-    font-weight: 300;
-    letter-spacing: .1px;
-    padding: 1px 4px;
-    border-radius: 4px;
-    transition: 0.3s;
-    opacity: 0;
-    visibility: hidden;
+.setting_input input:disabled+label {
+    opacity: .4;
 }
 
-.addon_info .hover_title:before {
-    position: absolute;
-    content: '';
-    height: 12px;
-    width: 12px;
-    background: #D4DFF4;
-    border-radius: 2px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    bottom: -3px;
-    z-index: -3;
+.pcafe_upgrade a {
+    background: #f56e28;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    outline: none;
 }
 
-.addon_info .single_info {
-    position: relative;
-    z-index: 1;
+.pro_introduction .content_heading h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
 }
 
-.addon_info .single_info:hover .hover_title {
-    top: -27px;
-    opacity: 1;
-    visibility: visible;
+.pro_introduction .content_heading p {
+    font-size: 15px;
+    margin: 0 0 40px;
+}
+
+.pro_introduction .content_heading h2 span:last-child {
+    color: #0077FF;
+}
+
+.features_list .list_header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0, 119, 255, .1);
+    background: rgba(0, 119, 255, .08);
+    border-radius: 10px 10px 0 0;
+    font-weight: 500;
+}
+
+
+.features_list .feature_free,
+.features_list .feature_pro {
+    width: 12%;
+}
+
+.features_list .feature_title {
+    width: 75%;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.features_list .feature_pro {
+    margin-left: auto;
+    text-align: center;
+}
+
+
+.features_list .feature {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 119, 255, .1);
+    background: rgba(0, 119, 255, .02);
+}
+
+.features_list .feature:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.features_list .feature i.dashicons {
+    color: #fff;
+    background: #0077FF;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.features_list .feature i.dashicons.dashicons-no-alt {
+    background: #7a7a7a;
+}
+
+.features_list .list_header .feature_title {
+    font-size: 18px;
+}
+
+.content_heading.free_vs_pro {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.content_heading {
+    text-align: center;
+}
+
+.setting_input.disabled .select2-container {
+    opacity: .4;
+}
+
+.setting_title h3 span {
+    text-transform: uppercase;
+    color: #F66F28;
+}
+
+.pcafe_spf_offer_wrap {
+    padding: 16px;
+    margin-bottom: 20px;
+    background: #E8F1FF;
+    border-radius: 6px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.pcafe_spf_offer_wrap img {
+    width: 75px;
+}
+
+.pcafe_spf_offer_content h3 {
+    margin: 0 0 10px;
+}
+
+.pcafe_spf_offer_content p {
+    margin: 0;
+}
+
+.pcafe_spf_offer_content .coupon {
+    font-size: 17px;
+    font-weight: 600;
+    color: #F66F28;
 }

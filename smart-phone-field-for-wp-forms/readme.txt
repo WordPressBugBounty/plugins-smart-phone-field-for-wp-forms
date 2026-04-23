@@ -4,7 +4,7 @@ Contributors: kaisarahmmed, pluginscafe
 Tags: WPForms, Smart phone field, contact form 7, WooCommerce, Phone field
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Tested up to: 6.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
@@ -24,7 +24,18 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 * Multiple phone field.
 * Country search
 * Token Field for GeoIP (optional)
-* More coming soon...
+
+== Premius Features == 
+* Prevent submit form with wrong validation.
+* Multiple form in single page (different form).
+* Custom validation message.
+* Phone number format with typing.  
+* Add country code automatically.
+* Phone number format in 4 different types. Ex: E.164 and more.
+* Three flag option and more.
+* Aailable in Wpforms, elementor form, fluent forms, contact form 7
+* More are comming soon...
+
 
 = Requirements =
 * PHP 7.4
@@ -64,6 +75,11 @@ Yes, it works in all popular browsers.
 
 
 == Change log ==
+
+= 1.0.5 =
+* Introduce Pro Version
+* Added Freemius SDK
+* Minor Bug Fix.
 
 = 1.0.4 =
 * Added Ipinfo Token Field.

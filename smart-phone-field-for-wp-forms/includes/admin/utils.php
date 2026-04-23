@@ -13,41 +13,36 @@ class PCafe_SPF_Utils {
                 'name'      => 'WPForms',
                 'slug'      => 'wp-forms',
                 'path'      => '',
-                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/#wpforms',
-                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/#wpforms',
-                'status'    => 'updated'
+                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/',
+                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/',
             ],
             'fluent-forms' => [
                 'name'      => 'Fluent Forms',
                 'slug'      => 'fluent-forms',
                 'path'      => '',
-                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/#fluent-forms',
-                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/#fluent-forms',
-                'status'    => 'new'
+                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/',
+                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/',
             ],
             'elementor-form' => [
                 'name'      => 'Elementor Form',
                 'slug'      => 'elementor-form',
                 'path'      => '',
-                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/#elementor-form',
-                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/#elementor-form',
-                'status'    => 'new'
+                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/',
+                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/',
             ],
             'contact-form-7' => [
                 'name'      => 'Contact Form 7',
                 'slug'      => 'contact-form-7',
                 'path'      => '',
-                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/#contact-form-7',
-                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/#contact-form-7',
-                'status'    => 'new'
+                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/',
+                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/',
             ],
             'woo-commerce' => [
                 'name'      => 'WooCommerce',
                 'slug'      => 'woo-commerce',
                 'path'      => '',
                 'demo'      => 'https://demo.pluginscafe.com/checkout',
-                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/#woo-commerce',
-                'status'    => 'new'
+                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/',
             ]
         ]);
     }

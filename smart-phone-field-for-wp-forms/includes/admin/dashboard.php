@@ -24,7 +24,7 @@ class PCAFE_SPF_Admin_Menu {
             __('Smart Phone Field', 'smart-phone-field-for-wp-forms'),
             __('SmartPhone Field', 'smart-phone-field-for-wp-forms'),
             'manage_options',
-            'smart-phone-field',
+            'smart-phone-field-pro',
             array($this, 'pcafe_spf_admin_page'),
             $icon_data_uri
         );

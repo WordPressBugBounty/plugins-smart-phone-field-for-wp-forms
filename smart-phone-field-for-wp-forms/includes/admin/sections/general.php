@@ -19,11 +19,18 @@ if (! defined('ABSPATH')) {
                     <li class="tab_list" data-tabscrollnavi="settings">
                         <a href="#settings" class="tab_item"><?php esc_html_e('Settings', 'smart-phone-field-for-wp-forms'); ?></a>
                     </li>
+                    <li class="tab_list" data-tabscrollnavi="features">
+                        <a href="#features" class="tab_item"><?php esc_html_e('Free Vs Pro', 'smart-phone-field-for-wp-forms'); ?></a>
+                    </li>
                     <li class="tab_list" data-tabscrollnavi="help">
                         <a href="#help" class="tab_item"><?php esc_html_e('Help', 'smart-phone-field-for-wp-forms'); ?></a>
                     </li>
                 </ul>
-                <div class="pcafe_upgrade"><a href="#"></a></div>
+                <div class="pcafe_upgrade">
+                    <?php if (spf_fs()->is_not_paying()) : ?>
+                        <a href="<?php echo esc_url(spf_fs()->get_upgrade_url()); ?>">Upgrade Now</a>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
@@ -36,6 +43,10 @@ if (! defined('ABSPATH')) {
 
                 <div data-tabscroll="settings" style="display: none;">
                     <?php include plugin_dir_path(__FILE__) . 'settings.php'; ?>
+                </div>
+
+                <div data-tabscroll="features" style="display: none;">
+                    <?php include plugin_dir_path(__FILE__) . 'features.php'; ?>
                 </div>
 
                 <div data-tabscroll="help" style="display: none;">

@@ -24,20 +24,19 @@ if (! defined('ABSPATH')) exit;
                     </div>
                 </div>
                 <div class="spf__addon_footer">
-                    <?php if (isset($addon['status'])) : ?>
-                        <span class="addon_status <?php echo esc_attr($addon['status']); ?>"><?php echo esc_attr($addon['status']); ?></span>
-                    <?php endif; ?>
                     <div class="addon_info">
-                        <?php if (isset($addon['doc'])) : ?>
-                            <a href="<?php echo esc_html($addon['doc']); ?>" class="single_info" target="_blank">
-                                <span class="hover_title"><?php esc_html_e('Documentation', 'smart-phone-field-for-wp-forms'); ?></span>
-                                <img src="<?php echo esc_url(PCAFE_SPF_URL . 'assets/img/doc-icon.svg'); ?>" alt="doc">
+                        <?php if (isset($addon['demo']) && !empty($addon['demo'])) : ?>
+                            <a href="<?php echo esc_html($addon['demo']); ?>" class="single_info demo" target="_blank">
+                                <?php if ($addon['slug'] == 'woo-commerce'): ?>
+                                    <?php esc_html_e('Demo', 'smart-phone-field-for-wp-forms'); ?>
+                                <?php else : ?>
+                                    <?php esc_html_e('Pro Demo', 'smart-phone-field-for-wp-forms'); ?>
+                                <?php endif; ?>
                             </a>
                         <?php endif; ?>
-                        <?php if (isset($addon['demo'])) : ?>
-                            <a href="<?php echo esc_html($addon['demo']); ?>" class="single_info" target="_blank">
-                                <span class="hover_title"><?php esc_html_e('Demo', 'smart-phone-field-for-wp-forms'); ?></span>
-                                <img src="<?php echo esc_url(PCAFE_SPF_URL . 'assets/img/demo-icon.svg'); ?>" alt="demo">
+                        <?php if (isset($addon['doc']) && !empty($addon['doc'])) : ?>
+                            <a href="<?php echo esc_html($addon['doc']); ?>" class="single_info doc" target="_blank">
+                                <?php esc_html_e('Docs', 'smart-phone-field-for-wp-forms'); ?>
                             </a>
                         <?php endif; ?>
                     </div>
