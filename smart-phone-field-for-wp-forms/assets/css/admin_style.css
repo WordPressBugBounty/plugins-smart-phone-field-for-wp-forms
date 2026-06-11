@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 :root {
     --spf-primary-color: rgba(0, 119, 255, 1);
     --spf-secondary-color: #0C263F;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 .toplevel_page_smart-phone-field-pro #wpcontent {
     padding-left: 0;
@@ -798,6 +799,8 @@ button.pcafe_spf_install_btn .loader {
 .setting_title h3 span {
     text-transform: uppercase;
     color: #F66F28;
+    font-weight: 700;
+    opacity: 1;
 }
 
 .pcafe_spf_offer_wrap {
@@ -826,4 +829,18 @@ button.pcafe_spf_install_btn .loader {
     font-size: 17px;
     font-weight: 600;
     color: #F66F28;
+}
+
+.pcafe_spf_promotion img {
+    width: 100%;
+}
+
+.pcafe_spf_promotion {
+    margin-bottom: 18px;
+}
+
+.pcafe_spf_promotion a {
+    display: flex;
+    outline: none;
+    box-shadow: none;
 }

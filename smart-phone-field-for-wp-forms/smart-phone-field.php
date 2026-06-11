@@ -1,14 +1,17 @@
 <?php
-/*
-Plugin Name: Smart Phone Field
-Plugin Url: https://pluginscafe.com/plugin/smart-phone-field
-Version: 1.0.5
-Description: Instruct visitors to choose country code when entering their mobile number to ensure accurate and correctly formatted data submissions.
-Author: Pluginscafe
-Author URI: https://pluginscafe.com
-License: GPLv2 or later
-Text Domain: smart-phone-field-for-wp-forms
-*/
+
+/** 
+ * Plugin Name: Smart Phone Field
+ * Plugin URI: https://pluginscafe.com/plugin/smart-phone-field
+ * Version: 1.0.6
+ * Description: Instruct visitors to choose country code when entering their mobile number to ensure accurate and correctly formatted data submissions.
+ * Author: Pluginscafe
+ * Author URI: https://pluginscafe.com
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: smart-phone-field-for-wp-forms
+ * Domain Path: /languages/
+ */
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -55,7 +58,7 @@ if (function_exists('spf_fs')) {
 }
 
 class PCafe_Smart_Phone_Field {
-    const version = '1.0.5';
+    const version = '1.0.6';
     public function __construct() {
         define('PCAFE_SPF_PATH', plugin_dir_path(__FILE__));
         define('PCAFE_SPF_URL', plugin_dir_url(__FILE__));
@@ -64,6 +67,7 @@ class PCafe_Smart_Phone_Field {
         add_action('wp_enqueue_scripts', [$this, 'pcafe_spf_enqueue_scripts']);
         add_action('activated_plugin', array($this, 'pcafe_spf_plugin_redirection'));
         register_activation_hook(__FILE__,   [$this, 'pcafe_spf_activation']);
+        add_action('admin_init', [$this, 'redirect_after_update']);
 
         add_action('wp_head', [$this, 'pcafe_spf_global_setting']);
         $this->loads_field();
@@ -117,6 +121,29 @@ class PCafe_Smart_Phone_Field {
         if (! $saved_settings) {
             $settings = ['spf_geoip' => 'on', 'spf_default_country' => 'US', 'spf_country_search' => 'on'];
             update_option('pcafe_spf_global_setting', $settings);
+        }
+    }
+
+    public function redirect_after_update() {
+        if (! is_admin() || ! current_user_can('manage_options')) {
+            return;
+        }
+
+        $saved_version   = get_option('pcafe_spf_version');
+        $current_version = PCAFE_SPF_VERSION;
+        $should_redirect = false;
+
+        if ($saved_version === false) {
+            $should_redirect = true;
+        } elseif (version_compare($saved_version, $current_version, '<')) {
+            $should_redirect = true;
+        }
+
+        if ($should_redirect) {
+            update_option('pcafe_spf_version', $current_version);
+            $redirect_url = admin_url('admin.php?page=smart-phone-field-pro');
+            wp_safe_redirect($redirect_url);
+            exit;
         }
     }
 }

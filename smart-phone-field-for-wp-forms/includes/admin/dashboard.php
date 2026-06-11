@@ -13,6 +13,7 @@ class PCAFE_SPF_Admin_Menu {
         add_action('wp_ajax_spf_install_manage_plugin', [$this, 'spf_install_manage_plugin']);
 
         $this->get_required_files();
+        $this->is_offer_active();
     }
 
     public function pcafe_spf_add_plugin_page() {
@@ -47,11 +48,13 @@ class PCAFE_SPF_Admin_Menu {
             wp_enqueue_style('pcafe_spf_select2', PCAFE_SPF_URL . 'assets/css/select2.min.css', array(), PCAFE_SPF_VERSION);
             wp_enqueue_style('pcafe_spf_admin_style', PCAFE_SPF_URL . 'assets/css/admin_style.css', array(), PCAFE_SPF_VERSION);
 
+            wp_enqueue_script('pcafe_spf_freemius', 'https://checkout.freemius.com/js/v1/', array(), PCAFE_SPF_VERSION, true);
             wp_enqueue_script('pcafe_spf_select2', PCAFE_SPF_URL . '/assets/js/select2.min.js', array(), PCAFE_SPF_VERSION, true);
             wp_enqueue_script('pcafe_spf_admin', PCAFE_SPF_URL . '/assets/js/admin.js', array(), PCAFE_SPF_VERSION, true);
             wp_localize_script('pcafe_spf_admin', 'pcafe_spf_admin', array(
                 'ajaxurl' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('pcafe_spf_nonce'),
+                'logo_url' => PCAFE_SPF_URL . 'assets/img/SPF.svg',
             ));
         }
 
@@ -59,10 +62,12 @@ class PCAFE_SPF_Admin_Menu {
     }
 
     public function spf_save_plugins_data() {
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         if (!isset($_POST['spf_plugin_addon']) || !wp_verify_nonce(sanitize_key(wp_unslash($_POST['spf_plugin_addon'])), 'spf_plugin_addon')) {
             return;
         }
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         if (isset($_POST['addon_list'])) {
             $sanitized_addon_list = is_array($_POST['addon_list'])
                 ? array_map('sanitize_text_field', wp_unslash($_POST['addon_list']))
@@ -77,12 +82,14 @@ class PCAFE_SPF_Admin_Menu {
     }
 
     public function spf_global_setting() {
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         if (!isset($_POST['spf_setting_nonce']) || !wp_verify_nonce(sanitize_key(wp_unslash($_POST['spf_setting_nonce'])), 'spf_setting_nonce')) {
             return;
         }
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         if (isset($_POST['action'])) {
-            $data = $_POST;
+            $data = wp_unslash($_POST);
             unset($data['spf_setting_nonce']);
             unset($data['_wp_http_referer']);
             unset($data['action']);
@@ -101,8 +108,11 @@ class PCAFE_SPF_Admin_Menu {
             wp_send_json_error('You do not have permission to perform this action.');
         }
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         $plugin_slug     = isset($_POST['plugin_slug']) ? sanitize_text_field(wp_unslash($_POST['plugin_slug'])) : '';
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         $filename = isset($_POST['filename']) ? sanitize_text_field(wp_unslash($_POST['filename'])) : '';
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         $plugin_action   = isset($_POST['plugin_action']) ? sanitize_text_field(wp_unslash($_POST['plugin_action'])) : '';
 
 
@@ -144,6 +154,24 @@ class PCAFE_SPF_Admin_Menu {
         }
 
         wp_send_json_error('Invalid action.');
+    }
+
+    public function is_offer_active() {
+        $transient_key = 'pcafe_spf_offer_notice';
+        $notice_array = get_transient($transient_key);
+
+        if ($notice_array === false) {
+            // Fetch from remote only if cache expired
+            $endpoint  = 'https://api.pluginscafe.com/wp-json/pcafe/v1/offers?id=5';
+            $response  = wp_remote_get($endpoint, array('timeout' => 10));
+
+            if (!is_wp_error($response) && $response['response']['code'] === 200) {
+                $notice_array = json_decode($response['body'], true);
+
+                // Save in cache for 3 hours (change as needed)
+                set_transient($transient_key, $notice_array, 12 * HOUR_IN_SECONDS);
+            }
+        }
     }
 }
 

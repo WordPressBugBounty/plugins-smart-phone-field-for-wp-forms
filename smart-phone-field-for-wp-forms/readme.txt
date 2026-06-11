@@ -1,11 +1,11 @@
-=== Smart Phone Field For WPForms, Contact Form 7, Fluent Forms, Elementor Forms, WooCommerce ===
+=== Smart Phone Field For WPForms, Contact Form 7, Fluent Forms, Elementor Forms, WooCommerce, Formidable Forms ===
 Author: Pluginscafe
 Contributors: kaisarahmmed, pluginscafe
 Tags: WPForms, Smart phone field, contact form 7, WooCommerce, Phone field
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.0.5
-Tested up to: 6.9
+Stable tag: 1.0.6
+Tested up to: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -24,8 +24,9 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 * Multiple phone field.
 * Country search
 * Token Field for GeoIP (optional)
+* Add formidable forms (new)
 
-== Premius Features == 
+== Premium Features == 
 * Prevent submit form with wrong validation.
 * Multiple form in single page (different form).
 * Custom validation message.
@@ -33,8 +34,8 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 * Add country code automatically.
 * Phone number format in 4 different types. Ex: E.164 and more.
 * Three flag option and more.
-* Aailable in Wpforms, elementor form, fluent forms, contact form 7
-* More are comming soon...
+* Available in WPForms, Elementor form, Fluent forms, Contact form 7, Formidable Forms
+* More are coming soon...
 
 
 = Requirements =
@@ -44,6 +45,7 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 * Contact Form 7
 * Fluent Forms 
 * Elementor Forms
+* Formidable Forms
 
 == Screenshots ==
 
@@ -55,6 +57,7 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 6. Settings on Contact Form 7
 7. Settings on Fluent Forms
 8. Settings on Elementor Forms
+9. Settings on Formidable Forms
 
 == Frequently Asked Questions ==
 
@@ -75,6 +78,10 @@ Yes, it works in all popular browsers.
 
 
 == Change log ==
+
+= 1.0.6 =
+* Added Formidable Forms
+* Minor Bug Fixes.
 
 = 1.0.5 =
 * Introduce Pro Version

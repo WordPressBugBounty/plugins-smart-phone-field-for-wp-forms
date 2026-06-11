@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 class PCafe_SPF_Addons {
 
     private static $instance = null;

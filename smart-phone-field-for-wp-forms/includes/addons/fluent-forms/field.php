@@ -173,7 +173,7 @@ class SPF_Fluent_Forms_Field extends \FluentForm\App\Services\FormBuilder\BaseFi
 
         $html = $this->buildElementMarkup($elMarkup, $data, $form);
 
-        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
     private function pushScripts($data, $form) {

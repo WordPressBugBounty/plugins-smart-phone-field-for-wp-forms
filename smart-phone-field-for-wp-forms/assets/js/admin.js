@@ -244,6 +244,37 @@
 
         });
 
+
+        const handler = new FS.Checkout({
+            product_id: '28140',
+            plan_id: '46422',
+            public_key: 'pk_1fdc751968a7a371a7a3606db7509',
+            image: pcafe_spf_admin.logo_url,
+            coupon: 'SPF30'
+        });
+    
+        document.getElementById('pcafe_spf_upgrade_btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            handler.open({
+                name: 'Smart Phone Field Pro',
+                licenses: '1',
+                purchaseCompleted: (response) => {
+                    // The logic here will be executed immediately after the purchase confirmation
+                    console.log('Purchase completed:', response);
+                    console.log('User email:', response.user.email);
+                    console.log('License key:', response.license.key);
+                },
+                success: (response) => {
+                    // The logic here will be executed after the customer closes the checkout, 
+                    // after a successful purchase
+                    console.log('Checkout closed after successful purchase:', response);
+                    console.log('User email:', response.user.email);
+                    console.log('License key:', response.license.key);
+                }
+            });
+        });
+
     });
 
 })(jQuery);

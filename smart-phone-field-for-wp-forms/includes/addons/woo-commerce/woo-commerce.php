@@ -64,6 +64,7 @@ class WooCommerce_SPF {
         }
 
         // Check if we are on *your* tab
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $current_tab = isset($_GET['tab']) ? sanitize_text_field(wp_unslash($_GET['tab'])) : '';
         if ($current_tab === 'smart_phone_field') {
             wp_enqueue_script(
@@ -179,6 +180,7 @@ class WooCommerce_SPF {
     }
 
     public function save_shipping_phone_field($order_id) {
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         if (!empty($_POST['shipping_phone'])) {
             update_post_meta($order_id, '_shipping_phone', sanitize_text_field(wp_unslash($_POST['shipping_phone'])));
         }

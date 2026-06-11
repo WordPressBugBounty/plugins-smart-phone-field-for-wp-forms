@@ -54,6 +54,16 @@ if (! defined('ABSPATH')) {
                 </div>
             </div>
             <div class="pcafe_spf_sidebar_wrap">
+                <?php
+                $transient_key = 'pcafe_spf_offer_notice';
+                $notice_array = get_transient($transient_key);
+                if (!empty($notice_array) && isset($notice_array['notice']) && $notice_array['live'] === true) : ?>
+                    <div class="pcafe_spf_promotion">
+                        <a id="pcafe_spf_upgrade_btn" href="#">
+                            <img src="<?php echo esc_url(PCAFE_SPF_URL . 'assets/img/coupon.png'); ?>" alt="coupon">
+                        </a>
+                    </div>
+                <?php endif; ?>
                 <div class="pcafe_spf_sidebar_content">
                     <h3 class="pcafe_spf_sidebar_title">
                         <?php esc_html_e('Power up your website', 'smart-phone-field-for-wp-forms'); ?>
@@ -61,22 +71,22 @@ if (! defined('ABSPATH')) {
                     <ul class="pcafe_spf_plugin_list">
                         <?php
                         $pcafe_spf_other_products = (array) PCafe_SPF_Utils::instance()->featured_plugins();
-                        foreach ($pcafe_spf_other_products as $item) :
-                            $plugin_path = $item['slug'] . '/' . $item['file_name'] . '.php';
+                        foreach ($pcafe_spf_other_products as $pcafe_spf_item) :
+                            $plugin_path = $pcafe_spf_item['slug'] . '/' . $pcafe_spf_item['file_name'] . '.php';
                             $installed = file_exists(WP_PLUGIN_DIR . '/' . $plugin_path);
                             $activated = $installed && is_plugin_active($plugin_path);
                         ?>
                             <li class="pcafe_spf_plugin_item">
                                 <div class="pcafe_spf_plugin_img">
-                                    <img src="<?php echo esc_url(PCAFE_SPF_URL . 'assets/img/' . $item['icon']); ?>" />
+                                    <img src="<?php echo esc_url(PCAFE_SPF_URL . 'assets/img/' . $pcafe_spf_item['icon']); ?>" />
                                 </div>
                                 <div class="pcafe_spf_plugin_content">
-                                    <div class="pcafe_spf_plugin_label"><?php echo esc_html($item['name']) ?></div>
-                                    <p><?php echo esc_html($item['desc']) ?></p>
+                                    <div class="pcafe_spf_plugin_label"><?php echo esc_html($pcafe_spf_item['name']) ?></div>
+                                    <p><?php echo esc_html($pcafe_spf_item['desc']) ?></p>
                                 </div>
                                 <div class="pcafe_spf_plugin_btn_wrap">
                                     <?php if (!$installed): ?>
-                                        <button class="pcafe_spf_install_btn" data-action="install" data-plugin="<?php echo esc_attr($item['slug']); ?>" data-filename="<?php echo esc_attr($item['file_name']); ?>">
+                                        <button class="pcafe_spf_install_btn" data-action="install" data-plugin="<?php echo esc_attr($pcafe_spf_item['slug']); ?>" data-filename="<?php echo esc_attr($pcafe_spf_item['file_name']); ?>">
                                             <?php esc_html_e('Install', 'smart-phone-field-for-wp-forms'); ?>
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M5.8335 5.83331H14.1668M14.1668 5.83331V14.1666M14.1668 5.83331L5.8335 14.1666" stroke="#0077FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -84,7 +94,7 @@ if (! defined('ABSPATH')) {
                                             <span class="loader"></span>
                                         </button>
                                     <?php elseif (!$activated): ?>
-                                        <button class="pcafe_spf_install_btn activate" data-action="activate" data-plugin="<?php echo esc_attr($item['slug']); ?>" data-filename="<?php echo esc_attr($item['file_name']); ?>">
+                                        <button class="pcafe_spf_install_btn activate" data-action="activate" data-plugin="<?php echo esc_attr($pcafe_spf_item['slug']); ?>" data-filename="<?php echo esc_attr($pcafe_spf_item['file_name']); ?>">
                                             Activate <span class="loader"></span>
                                         </button>
                                     <?php else: ?>

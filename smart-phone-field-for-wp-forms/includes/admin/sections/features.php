@@ -1,7 +1,7 @@
 <?php
 if (! defined('ABSPATH')) exit;
 
-$features = [
+$pcafe_spf_features = [
     [
         'feature'   => __('Live/Frontend validation', 'smart-phone-field-for-wp-forms'),
         'pro'       => 0
@@ -73,11 +73,11 @@ $features = [
             <div class="feature_free"><?php esc_html_e('Free', 'smart-phone-field-for-wp-forms'); ?></div>
             <div class="feature_pro"><?php esc_html_e('Pro', 'smart-phone-field-for-wp-forms'); ?></div>
         </div>
-        <?php foreach ($features as $feature) : ?>
+        <?php foreach ($pcafe_spf_features as $pcafe_spf_feature) : ?>
             <div class="feature">
-                <div class="feature_title"><?php echo esc_html($feature['feature']); ?></div>
+                <div class="feature_title"><?php echo esc_html($pcafe_spf_feature['feature']); ?></div>
                 <div class="feature_free">
-                    <?php if ($feature['pro']) : ?>
+                    <?php if ($pcafe_spf_feature['pro']) : ?>
                         <i class="dashicons dashicons-no-alt"></i>
                     <?php else : ?>
                         <i class="dashicons dashicons-saved"></i>

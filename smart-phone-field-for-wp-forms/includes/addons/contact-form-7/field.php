@@ -114,7 +114,8 @@ class SPF_Contact_Form_7_Field {
     public function smart_phone_field_validation_filter($result, $tag) {
         $name = $tag->name;
 
-        $value = isset($_POST[$name]) ? (string) wp_unslash($_POST[$name]) : '';
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
+        $value = isset($_POST[$name]) ? sanitize_text_field(wp_unslash($_POST[$name])) : '';
 
         if ($tag->is_required() && '' == $value) {
             $result->invalidate($tag, wpcf7_get_message('invalid_required'));

@@ -1,4 +1,4 @@
-class PCAFE_SPF_CF7 {
+class PCAFE_SPF_Formidable {
     constructor(options, globalOptions) {
         this.options = options;
         this.global = globalOptions;
@@ -16,6 +16,10 @@ class PCAFE_SPF_CF7 {
             comOps.initialCountry = this.global.spf_default_country;
             comOps.geoIpLookup = this.global.spf_geoip ? 1 : 0;
             comOps.validation = this.global.spf_frontend_validation ? 1 : 0;
+        }
+
+        if (this.options.config == 'custom') {
+            comOps.geoIpLookup = this.options.geoIp ? 1 : 0;
         }
 
         comOps.countrySearch = this.global.spf_country_search ? 1 : 0;
@@ -95,15 +99,15 @@ class PCAFE_SPF_CF7 {
 
         if (input.value) {
             if (isValid) {
-                input.classList.remove('invalid');
-                input.classList.add('valid');
+                input.classList.remove('frm_invalid');
+                input.classList.add('frm_valid');
             } else {
-                input.classList.remove('valid');
-                input.classList.add('invalid');
+                input.classList.remove('frm_valid');
+                input.classList.add('frm_invalid');
             }
         } else {
-            input.classList.remove('valid');
-            input.classList.remove('invalid');
+            input.classList.remove('frm_valid');
+            input.classList.remove('frm_invalid');
         }
     }
 
@@ -114,15 +118,15 @@ class PCAFE_SPF_CF7 {
 
         if (input.value) {
             if (isValid) {
-                input.classList.remove('invalid');
-                input.classList.add('valid');
+                input.classList.remove('frm_invalid');
+                input.classList.add('frm_valid');
             } else {
-                input.classList.remove('valid');
-                input.classList.remove('invalid');
+                input.classList.remove('frm_valid');
+                input.classList.remove('frm_invalid');
             }
         } else {
-            input.classList.remove('valid');
-            input.classList.remove('invalid');
+            input.classList.remove('frm_valid');
+            input.classList.remove('frm_invalid');
         }
     }
 
@@ -154,39 +158,33 @@ class PCAFE_SPF_CF7 {
     }
 }
 
-function initSPFFields() {
-    document.querySelectorAll('.wpcf7-smart_phone_field').forEach(function (input) {
+function initFormidableSPFFields() {
+    document.querySelectorAll('.frm_spf_input').forEach(function (input) {
 
-        let globalOptions = pcafe_spf_global_setting;
+        let globalOptions = typeof pcafe_spf_global_setting !== 'undefined' ? pcafe_spf_global_setting : {};
 
         let options = {
             inputId: input,
-            config: input.getAttribute('data-config'),
-            initialCountry: input.getAttribute('data-init_country') ? input.getAttribute('data-init_country') : 'us',
-            validation: input.getAttribute('data-fv') ? input.getAttribute('data-fv') : 0,
+            config: input.getAttribute('data-config') || 'global',
+            initialCountry: input.getAttribute('data-init_country') || 'us',
+            validation: input.getAttribute('data-validation') || 0,
+            geoIp: input.getAttribute('data-geoip') || 0,
         };
 
-        new PCAFE_SPF_CF7(options, globalOptions);
+        console.log(options);
+
+        new PCAFE_SPF_Formidable(options, globalOptions);
     });
 }
 
-// Run on page load (for fields already on the page)
-initSPFFields();
-
-// Run again when Elementor popup opens
-jQuery(document).on('elementor/popup/show', function (event, id, instance) {
-    // Wait a short moment to ensure popup DOM is fully loaded
-    setTimeout(() => {
-        initSPFFields();
-    }, 300);
+// Run on page load
+document.addEventListener("DOMContentLoaded", function() {
+    initFormidableSPFFields();
 });
 
-
-
-document.addEventListener('wpcf7submit', function (event) {
-    document.querySelectorAll('.wpcf7-smart_phone_field').forEach(function (input) {
-        input.classList.remove('invalid');
-        input.classList.remove('valid');
-    });
-}, false);
-
+// Run again when Formidable Forms does ajax loading (if applicable)
+jQuery(document).ajaxComplete(function(event, xhr, settings) {
+    if (settings.action === 'frm_entries_ajax_submit' || settings.data && settings.data.indexOf('action=frm_entries_ajax_submit') !== -1) {
+        initFormidableSPFFields();
+    }
+});

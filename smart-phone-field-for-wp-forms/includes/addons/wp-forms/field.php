@@ -65,7 +65,7 @@ class SPF_WPForms_Field extends WPForms_Field {
         printf(
             '<input type="%s" %s %s>',
             esc_attr($type),
-            wpforms_html_attributes($primary['id'], $primary['class'], $primary['data'], $primary['attr']),
+            wpforms_html_attributes($primary['id'], $primary['class'], $primary['data'], $primary['attr']), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             esc_attr($primary['required'])
         );
 

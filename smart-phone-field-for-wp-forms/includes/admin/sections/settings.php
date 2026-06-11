@@ -101,7 +101,7 @@ $pro_text = esc_html__(' - Pro', 'smart-phone-field-for-wp-forms');
         <div class="single_setting">
             <div class="setting_title">
                 <h3><?php esc_html_e('Flag Option', 'smart-phone-field-for-wp-forms'); ?><span><?php echo esc_html($pro_text); ?></span></h3>
-                <p><?php esc_html_e('Choose the default country to be used for the country code selector when GeoIP is disabled.', 'smart-phone-field-for-wp-forms'); ?></p>
+                <p><?php esc_html_e('There are three flag options available for display in the form.', 'smart-phone-field-for-wp-forms'); ?></p>
             </div>
             <div class="setting_input disabled">
                 <select name="spf_flag_option" id="spf_flag_option" disabled>
@@ -114,7 +114,7 @@ $pro_text = esc_html__(' - Pro', 'smart-phone-field-for-wp-forms');
         <div class="single_setting">
             <div class="setting_title">
                 <h3><?php esc_html_e('Backend Validation', 'smart-phone-field-for-wp-forms'); ?><span><?php echo esc_html($pro_text); ?></span></h3>
-                <p><?php esc_html_e('Enable this option to backend validation on the input field as the user types.', 'smart-phone-field-for-wp-forms'); ?></p>
+                <p><?php esc_html_e('Enable this option to validate the entered number on the backend. The form will be submitted only if the number is valid; otherwise, a validation error message will be shown.', 'smart-phone-field-for-wp-forms'); ?></p>
             </div>
             <div class="setting_input">
                 <input type="checkbox" name="spf_backend_validation" id="spf_backend_validation" disabled />
@@ -124,10 +124,10 @@ $pro_text = esc_html__(' - Pro', 'smart-phone-field-for-wp-forms');
         <div class="single_setting backend_valid">
             <div class="setting_title">
                 <h3><?php esc_html_e('Phone format in notification', 'smart-phone-field-for-wp-forms'); ?><span><?php echo esc_html($pro_text); ?></span></h3>
-                <p><?php esc_html_e('Choose the default country to be used for the country code selector when GeoIP is disabled.', 'smart-phone-field-for-wp-forms'); ?></p>
+                <p><?php esc_html_e('Choose from the four available phone number formats for displaying and collecting phone numbers. Ex: E.164 and more.', 'smart-phone-field-for-wp-forms'); ?></p>
             </div>
             <div class="setting_input">
-                <select name="spf_phone_format" id="spf_phone_format" disabled>
+                <select name="spf_phone_format" id="spf_phone_format">
                     <option value="raw"><?php esc_html_e('Raw Phone Number ( +12015550123 )', 'smart-phone-field-for-wp-forms'); ?></option>
                     <option value="raw_national"><?php esc_html_e('Raw National Format ( 2015550123 )', 'smart-phone-field-for-wp-forms'); ?></option>
                     <option value="national"><?php esc_html_e('National Format ( (201) 555-0123 )', 'smart-phone-field-for-wp-forms'); ?></option>
@@ -138,7 +138,7 @@ $pro_text = esc_html__(' - Pro', 'smart-phone-field-for-wp-forms');
         <div class="single_setting backend_valid">
             <div class="setting_title">
                 <h3><?php esc_html_e('Backend Validation Failed Message', 'smart-phone-field-for-wp-forms'); ?><span><?php echo esc_html($pro_text); ?></span></h3>
-                <p><?php esc_html_e('Enable this option to backend validation on the input field as the user types.', 'smart-phone-field-for-wp-forms'); ?></p>
+                <p><?php esc_html_e('Add a custom validation message that will be shown to users when the input is invalid.', 'smart-phone-field-for-wp-forms'); ?></p>
             </div>
             <div class="setting_input">
                 <input type="text" name="spf_backend_validation_message" id="spf_backend_validation_message" value="Please enter valid phone number" disabled>
@@ -147,7 +147,7 @@ $pro_text = esc_html__(' - Pro', 'smart-phone-field-for-wp-forms');
         <div class="single_setting">
             <div class="setting_title">
                 <h3><?php esc_html_e('Strict Mode', 'smart-phone-field-for-wp-forms'); ?><span><?php echo esc_html($pro_text); ?></span></h3>
-                <p><?php esc_html_e('Enable this option to include a search input at the top of the dropdown, allowing users to filter the list of displayed countries.', 'smart-phone-field-for-wp-forms'); ?></p>
+                <p><?php esc_html_e('Allow only numeric input with an optional leading “+”, automatically ignoring any other characters. Limit the input length to the maximum valid phone number length.', 'smart-phone-field-for-wp-forms'); ?></p>
             </div>
             <div class="setting_input">
                 <input type="checkbox" name="spf_strict_mode" id="spf_strict_mode" disabled>

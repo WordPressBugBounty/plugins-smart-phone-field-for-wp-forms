@@ -15,33 +15,51 @@
         });
 
 
-        jQuery('.wpforms-field-option-spf_phone').each(function (i, e) {
-
-            let main_btn = jQuery(this).find('.wpforms-field-option-row-configuration select'),
-                main_btn_value = main_btn.val(),
-                geoip_box = jQuery(this).find('.wpforms-field-option-row-geoip'),
-                deCou_box = jQuery(this).find('.wpforms-field-option-row-default_country'),
-                front_box = jQuery(this).find('.wpforms-field-option-row-front_validation');
-
-            showHide(main_btn_value);
-
-            jQuery(main_btn).on('change', function () {
-                let config = jQuery(this).val();
-                showHide(config);
-            });
-
-            function showHide(config) {
-                if (config == 'global') {
-                    geoip_box.hide();
-                    deCou_box.hide();
-                    front_box.hide();
-                } else {
-                    geoip_box.show();
-                    deCou_box.show();
-                    front_box.show();
-                }
-            }
+        function updateFor($wrap) {
+            const $select   = $wrap.find('.wpforms-field-option-row-configuration select');
+            const config    = $select.val();
+            const isGlobal  = (config === 'global');
+            $wrap.find('.wpforms-field-option-row-geoip').toggle(!isGlobal);
+            $wrap.find('.wpforms-field-option-row-default_country').toggle(!isGlobal);
+            $wrap.find('.wpforms-field-option-row-front_validation').toggle(!isGlobal);
+        }
+        // initial pass (in case already present)
+        $('.wpforms-field-option-spf_phone').each(function () {
+            updateFor($(this));
         });
+        // delegated change handler (works even if select is created/replaced later)
+        $(document).on(
+            'change',
+            '.wpforms-field-option-spf_phone .wpforms-field-option-row-configuration select',
+            function () {
+            updateFor($(this).closest('.wpforms-field-option-spf_phone'));
+            }
+        );
+
+        /* Formidable Forms */
+        function applySpfConditionByConfigSelect($configSelect) {
+            const configId = $configSelect.attr('id') || '';
+            const suffix = configId.replace('spf_config_', ''); // field_id part
+            if (!suffix) return;
+            const isGlobal = ($configSelect.val() === 'global');
+            // Find the <p> wrappers that contain the related controls
+            const $geoipRow   = $('#spf_geoip_' + suffix).closest('p.frm_form_field');
+            const $countryRow = $('#spf_default_country_' + suffix).closest('p.frm_form_field');
+            const $frontRow   = $('#spf_frontend_validation_' + suffix).closest('p.frm_form_field');
+            // Hide when global, show when custom
+            $geoipRow.toggle(!isGlobal);
+            $countryRow.toggle(!isGlobal);
+            $frontRow.toggle(!isGlobal);
+        }
+        // Initial run for all existing fields
+        $('select[id^="spf_config_"]').each(function () {
+            applySpfConditionByConfigSelect($(this));
+        });
+        // Change handler (delegated so it works if rows are injected/replaced later)
+        $(document).on('change', 'select[id^="spf_config_"]', function () {
+            applySpfConditionByConfigSelect($(this));
+        });
+
 
     });
 

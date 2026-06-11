@@ -74,7 +74,7 @@ class SPF_Elementor_Form_Field extends \ElementorPro\Modules\Forms\Fields\Field_
             $form->add_render_attribute('input' . $item_index, 'data-fv', esc_attr($item['spf_frontend_validation']));
         }
 
-        echo '<input ' . $form->get_render_attribute_string('input' . $item_index) . '>';
+        echo '<input ' . $form->get_render_attribute_string('input' . $item_index) . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
 
