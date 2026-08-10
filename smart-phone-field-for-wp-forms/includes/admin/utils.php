@@ -44,6 +44,13 @@ class PCafe_SPF_Utils {
                 'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/',
                 'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/',
             ],
+            'ninja-forms' => [
+                'name'      => 'Ninja Forms',
+                'slug'      => 'ninja-forms',
+                'path'      => '',
+                'demo'      => 'https://demo.pluginscafe.com/smart-phone-field/',
+                'doc'       => 'https://pluginscafe.com/docs/smart-phone-field/',
+            ],
             'woo-commerce' => [
                 'name'      => 'WooCommerce',
                 'slug'      => 'woo-commerce',

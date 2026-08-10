@@ -1,0 +1,20 @@
+<script id="tmpl-nf-field-smartphone" type="text/template">
+    <input
+        type="tel"
+        value="{{{ _.escape( data.value ) }}}"
+        class="{{{ data.renderClasses() }}} nf-element pcafe_spf_ninja_forms_input"
+        {{{ data.maybeDisabled() }}}
+        id="nf-field-{{{ data.id }}}"
+        name="{{ data.custom_name_attribute || 'nf-field-' + data.id + '-' + data.type }}"
+        {{{ data.maybeDisableAutocomplete() }}}
+        {{{ data.renderPlaceholder() }}}
+        data-config="{{ data.spf_configuration || 'global' }}"
+        data-geoip="{{ data.spf_geoip || '' }}"
+        data-init_country="{{ data.spf_default_country || 'us' }}"
+        data-validation="{{ data.spf_frontend_validation || '' }}"
+        aria-invalid="false"
+        aria-describedby="<# if( data.desc_text ) { #>nf-description-{{{ data.id }}} <# } #>nf-error-{{{ data.id }}}"
+        aria-labelledby="nf-label-field-{{{ data.id }}}"
+        {{{ data.maybeRequired() }}}
+    >
+</script>

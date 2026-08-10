@@ -1,0 +1,50 @@
+#nf-main-content .smart_phone .nf-placeholder-label,
+#nf-main-content .smart_phone-container .nf-placeholder-label,
+#nf-main-content .smart_phone-wrap .nf-placeholder-label {
+    color: #000;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+#nf-main-content .smart_phone .nf-placeholder-label .fa,
+#nf-main-content .smart_phone-container .nf-placeholder-label .fa,
+#nf-main-content .smart_phone-wrap .nf-placeholder-label .fa {
+    display: none;
+}
+
+#nf-main-content .smart_phone .nf-placeholder-label .nf-field-label,
+#nf-main-content .smart_phone-container .nf-placeholder-label .nf-field-label,
+#nf-main-content .smart_phone-wrap .nf-placeholder-label .nf-field-label {
+    color: #000;
+    display: inline;
+    font-weight: 600;
+    margin-left: 0;
+    overflow: visible;
+    white-space: normal;
+    width: auto;
+}
+
+#nf-main-content .smart_phone .nf-realistic-field,
+#nf-main-content .smart_phone-container .nf-realistic-field,
+#nf-main-content .smart_phone-wrap .nf-realistic-field {
+    display: block;
+}
+
+#nf-main-content .smart_phone .nf-realistic-field--label,
+#nf-main-content .smart_phone-container .nf-realistic-field--label,
+#nf-main-content .smart_phone-wrap .nf-realistic-field--label {
+    display: none;
+}
+
+#nf-main-content .smart_phone .nf-realistic-field--element:empty::before,
+#nf-main-content .smart_phone-container .nf-realistic-field--element:empty::before,
+#nf-main-content .smart_phone-wrap .nf-realistic-field--element:empty::before {
+    background: rgba(236, 239, 247, 0.5);
+    border: 1px solid rgba(48, 55, 62, 0.55);
+    content: "";
+    display: block;
+    height: 50px;
+    width: 100%;
+}

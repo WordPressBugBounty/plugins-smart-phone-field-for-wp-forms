@@ -151,3 +151,91 @@ button.iti__selected-country:focus {
     background-position: calc(100% - 10px) 50%;
     transition: none;
 }
+
+/* Ninja Forms */
+.nf-form-content .pcafe_spf_ninja_forms,
+.nf-field-element .pcafe_spf_ninja_forms {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms *,
+.nf-field-element .pcafe_spf_ninja_forms * {
+    box-sizing: border-box;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms .iti__country-container,
+.nf-field-element .pcafe_spf_ninja_forms .iti__country-container {
+    bottom: 0;
+    left: 0;
+    top: 0;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms button.iti__selected-country,
+.nf-field-element .pcafe_spf_ninja_forms button.iti__selected-country {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    line-height: inherit;
+    margin: 0;
+    min-height: 0;
+    outline: none;
+    padding: 0 !important;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms .iti__selected-country-primary,
+.nf-field-element .pcafe_spf_ninja_forms .iti__selected-country-primary {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms .iti__selected-dial-code,
+.nf-field-element .pcafe_spf_ninja_forms .iti__selected-dial-code {
+    display: inline-block;
+    line-height: 1;
+    margin-left: 4px;
+    white-space: nowrap;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms button.iti__selected-country:hover,
+.nf-form-content .pcafe_spf_ninja_forms button.iti__selected-country:focus,
+.nf-field-element .pcafe_spf_ninja_forms button.iti__selected-country:hover,
+.nf-field-element .pcafe_spf_ninja_forms button.iti__selected-country:focus {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms input.pcafe_spf_ninja_forms_input,
+.nf-field-element .pcafe_spf_ninja_forms input.pcafe_spf_ninja_forms_input {
+    display: block;
+    max-width: 100%;
+    width: 100% !important;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms input.pcafe_spf_ninja_forms_input.valid,
+.nf-field-element .pcafe_spf_ninja_forms input.pcafe_spf_ninja_forms_input.valid {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2347C26F" height="24px" width="24px" ><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" /></svg>');
+    background-position: calc(100% - 10px) 50%;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    padding-right: 42px !important;
+    transition: none;
+}
+
+.nf-form-content .pcafe_spf_ninja_forms input.pcafe_spf_ninja_forms_input.invalid,
+.nf-field-element .pcafe_spf_ninja_forms input.pcafe_spf_ninja_forms_input.invalid {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23E43121" height="24px" width="24px"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" /></svg>');
+    background-position: calc(100% - 10px) 50%;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    padding-right: 42px !important;
+    transition: none;
+}

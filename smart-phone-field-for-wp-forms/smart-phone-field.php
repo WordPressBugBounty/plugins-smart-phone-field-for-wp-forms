@@ -3,7 +3,7 @@
 /** 
  * Plugin Name: Smart Phone Field
  * Plugin URI: https://pluginscafe.com/plugin/smart-phone-field
- * Version: 1.0.6
+ * Version: 1.0.7
  * Description: Instruct visitors to choose country code when entering their mobile number to ensure accurate and correctly formatted data submissions.
  * Author: Pluginscafe
  * Author URI: https://pluginscafe.com
@@ -58,7 +58,7 @@ if (function_exists('spf_fs')) {
 }
 
 class PCafe_Smart_Phone_Field {
-    const version = '1.0.6';
+    const version = '1.0.7';
     public function __construct() {
         define('PCAFE_SPF_PATH', plugin_dir_path(__FILE__));
         define('PCAFE_SPF_URL', plugin_dir_url(__FILE__));

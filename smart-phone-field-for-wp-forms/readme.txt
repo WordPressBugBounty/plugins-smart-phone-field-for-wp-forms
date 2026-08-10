@@ -1,10 +1,10 @@
-=== Smart Phone Field For WPForms, Contact Form 7, Fluent Forms, Elementor Forms, WooCommerce, Formidable Forms ===
+=== Smart Phone Field For WPForms, Contact Form 7, Fluent Forms, Elementor Forms, WooCommerce, Formidable Forms, Ninja Forms ===
 Author: Pluginscafe
 Contributors: kaisarahmmed, pluginscafe
 Tags: WPForms, Smart phone field, contact form 7, WooCommerce, Phone field
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Tested up to: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
@@ -24,7 +24,8 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 * Multiple phone field.
 * Country search
 * Token Field for GeoIP (optional)
-* Add formidable forms (new)
+* Add Formidable Forms
+* Add Ninja Forms (new)
 
 == Premium Features == 
 * Prevent submit form with wrong validation.
@@ -34,7 +35,7 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 * Add country code automatically.
 * Phone number format in 4 different types. Ex: E.164 and more.
 * Three flag option and more.
-* Available in WPForms, Elementor form, Fluent forms, Contact form 7, Formidable Forms
+* Available in WPForms, Elementor form, Fluent forms, Contact form 7, Formidable Forms, Ninja Forms
 * More are coming soon...
 
 
@@ -46,6 +47,7 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 * Fluent Forms 
 * Elementor Forms
 * Formidable Forms
+* Ninja Forms
 
 == Screenshots ==
 
@@ -58,11 +60,12 @@ The Smart Phone field plugin enables you to create a country drop-down list with
 7. Settings on Fluent Forms
 8. Settings on Elementor Forms
 9. Settings on Formidable Forms
+10. Settings on Ninja Forms
 
 == Frequently Asked Questions ==
 
 = Which plugins are supported by this smart phone field plugin? =
-Currently, WPForms, Contact Form 7, Fluent Forms, Elementor Forms and WooCommerce are supported. However, we are working to add support for more plugins, such as Formidable, Ninja Forms, and others.
+Currently, WPForms, Contact Form 7, Fluent Forms, Elementor Forms, WooCommerce, Formidable Forms, and Ninja Forms are supported.
 
 = Does this plugin send or save numbers with the country code? =
 Yes, it saves the number in entries and sends emails with the country code included.
@@ -78,6 +81,10 @@ Yes, it works in all popular browsers.
 
 
 == Change log ==
+
+= 1.0.7 =
+* Added Ninja Forms
+* Minor Bug Fixes.
 
 = 1.0.6 =
 * Added Formidable Forms
