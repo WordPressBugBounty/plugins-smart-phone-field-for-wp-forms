@@ -13,7 +13,6 @@ class PCAFE_SPF_Admin_Menu {
         add_action('wp_ajax_spf_install_manage_plugin', [$this, 'spf_install_manage_plugin']);
 
         $this->get_required_files();
-        $this->is_offer_active();
     }
 
     public function pcafe_spf_add_plugin_page() {
@@ -154,24 +153,6 @@ class PCAFE_SPF_Admin_Menu {
         }
 
         wp_send_json_error('Invalid action.');
-    }
-
-    public function is_offer_active() {
-        $transient_key = 'pcafe_spf_offer_notice';
-        $notice_array = get_transient($transient_key);
-
-        if ($notice_array === false) {
-            // Fetch from remote only if cache expired
-            $endpoint  = 'https://api.pluginscafe.com/wp-json/pcafe/v1/offers?id=5';
-            $response  = wp_remote_get($endpoint, array('timeout' => 10));
-
-            if (!is_wp_error($response) && $response['response']['code'] === 200) {
-                $notice_array = json_decode($response['body'], true);
-
-                // Save in cache for 3 hours (change as needed)
-                set_transient($transient_key, $notice_array, 12 * HOUR_IN_SECONDS);
-            }
-        }
     }
 }
 

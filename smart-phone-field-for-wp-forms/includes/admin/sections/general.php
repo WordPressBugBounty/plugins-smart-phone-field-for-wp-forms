@@ -54,16 +54,6 @@ if (! defined('ABSPATH')) {
                 </div>
             </div>
             <div class="pcafe_spf_sidebar_wrap">
-                <?php
-                $transient_key = 'pcafe_spf_offer_notice';
-                $notice_array = get_transient($transient_key);
-                if (!empty($notice_array) && isset($notice_array['notice']) && $notice_array['live'] === true) : ?>
-                    <div class="pcafe_spf_promotion">
-                        <a id="pcafe_spf_upgrade_btn" href="#">
-                            <img src="<?php echo esc_url(PCAFE_SPF_URL . 'assets/img/coupon.png'); ?>" alt="coupon">
-                        </a>
-                    </div>
-                <?php endif; ?>
                 <div class="pcafe_spf_sidebar_content">
                     <h3 class="pcafe_spf_sidebar_title">
                         <?php esc_html_e('Power up your website', 'smart-phone-field-for-wp-forms'); ?>
